@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #form {
+            width: 580px;
+            height: 560px;
+            background-color: white;
+            top: 35px;
+            border-radius: 10px;
+            padding: 35px;
+            position: absolute;
+            margin-left: 150px;
+            margin-top: 120px;
+            margin-left: 400px;
+        }
+
+        /* #form2 {
+            width: 480px;
+            height: 420px;
+            background-color: white;
+            top: 35px;
+            border-radius: 10px;
+            padding: 35px;
+            position: absolute;
+            margin-left: 750px;
+            margin-top: 120px;
+            text-align: center;
+        } */
+
+        body {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-image: url("ibbbbbbbbbbbbbbbbbb.jpg");
+
+        }
+
+        label {
+            text-align: center;
+            width: 100px;
+            display: inline-block;
+        }
+
+        input {
+            width: 250px;
+            height: 30px;
+            margin-left: 40px;
+        }
+
+        button {
+            color: white;
+            width: 220px;
+            height: 45px;
+            background-color: #0a3101;
+            margin-left: 140px;
+            border-radius: 10px;
+            margin-top: 5px;
+        }
+
+        .menu-bar {
+            background: rgb(14, 80, 128);
+            border-radius: 15px;
+            margin-top: 5px;
+            margin-right: 20px;
+        }
+
+        .menu-bar ul {
+            display: inline-flex;
+            list-style: none;
+            color: white;
+        }
+
+        .menu-bar ul li {
+            width: 80px;
+            margin: 15px;
+            padding: 15px;
+            margin-left: 60px;
+        }
+
+        .menu-bar ul li a {
+            text-decoration: none;
+            color: white;
+            justify-content: center;
+            display: flex;
+        }
+
+        .active,
+        .menu-bar ul li:hover {
+            background: #0a3101;
+            border-radius: 5px;
+        }
+
+        .menu-bar .fr {
+            margin-right: 8px;
+        }
+
+        /* General styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(90deg, #007BFF, #00C6FF);
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #f9f9f9;
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>Madrasa Darul Uloom Rahmania</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="addmision.html">Addmision</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="form">
+
+        <h2 style="text-align: center;">ADDMISION FORM</h2>
+        <br>
+        <label for="">Student Name</label>
+        <input type="text" id="SName">
+        <br><br>
+        <label for="">Father Name</label>
+        <input type="text" id="FName">
+        <br><br>
+        <label for="">Father CNIC</label>
+        <input type="text" id="CNIC">
+        <br><br>
+        <label for="">Address</label>
+        <input type="text" id="address">
+        <br><br>
+        <label for="">Mobile</label>
+        <input type="text" id="mobile">
+        <br><br>
+        <label for="">Email</label>
+        <input type="text" id="mobile">
+        <br><br>
+        <button onclick="insertRecord()">Add Record</button>
+        <br><br><br>
+    </div>
+    <div>
+    
+    </div>
+    <div id="form2">
+        <table>
+            <!-- <tr>
+                <th>SNo</th>
+                <th>Roll No</th>
+                <th>Name</th>
+                <th>Father Name</th>
+                <th>Address</th>
+                <th>MObile</th>
+            </tr> -->
+
+            <tbody id="tbody"></tbody>
+        </table>
+
+    </div>
+    
+    <script>
+        let sNo = 1;
+        function insertRecord() {
+            const srollno = document.getElementById('rollno').value;
+            const sname = document.getElementById('name').value;
+            const sfname = document.getElementById('fname').value;
+            const saddress = document.getElementById('address').value;
+            const smobile = document.getElementById('mobile').value;
+
+            const tr = document.createElement('tr');
+            const tdsNo = document.createElement('td');
+            const tdRNo = document.createElement('td');
+            const tdName = document.createElement('td');
+            const tdfName = document.createElement('td');
+            const tdaddress = document.createElement('td');
+            const tdmobile = document.createElement('td');
+
+
+
+            tdsNo.innerText = sNo;
+            tdRNo.innerText = srollno;
+            tdName.innerText = sname;
+            tdfName.innerText = sfname;
+            tdaddress.innerText = saddress;
+            tdmobile.innerText = smobile
+
+            sNo++;
+            tr.appendChild(tdsNo);
+            tr.appendChild(tdRNo);
+            tr.appendChild(tdName);
+            tr.appendChild(tdfName)
+            tr.appendChild(tdaddress)
+            tr.appendChild(tdmobile)
+
+            document.getElementById('tbody').appendChild(tr);
+
+            document.getElementById('rollno').value = "";
+            document.getElementById('name').value = "";
+            document.getElementById('fname').value = "";
+            document.getElementById('address').value = "";
+            document.getElementById('mobile').value = "";
+
+
+        }
+    </script>
+</body>
+
+</html>
